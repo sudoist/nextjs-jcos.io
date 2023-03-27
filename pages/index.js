@@ -127,6 +127,8 @@ export default function Home() {
                             <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
                                 <p className="text-lg leading-8 text-gray-600 mb-5">
                                     Full Stack Developer with over 11 years of experience in web development.
+                                </p>
+                                <p className="text-lg leading-8 text-gray-600 mb-5">
                                     Ranging from ground up projects and maintenance of legacy applications.
                                 </p>
                                 <p className="text-lg leading-8 text-gray-600 mb-5">
