@@ -210,7 +210,7 @@ export default function Home() {
                         <div
                             className="mx-auto mt-20 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:max-w-4xl lg:grid-cols-5">
                             <img
-                                className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
                                 src="/images/tailwindcss.png"
                                 alt="Tailwind CSS"
                                 width={158}
@@ -238,7 +238,7 @@ export default function Home() {
                                 height={48}
                             />
                             <img
-                                className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
                                 src="/images/laravel.png"
                                 alt="Laravel"
                                 width={158}
@@ -252,28 +252,28 @@ export default function Home() {
                                 height={48}
                             />
                             <img
-                                className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
                                 src="/images/docker.png"
                                 alt="Docker"
                                 width={158}
                                 height={48}
                             />
                             <img
-                                className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
                                 src="/images/redis.png"
                                 alt="Redis"
                                 width={158}
                                 height={48}
                             />
                             <img
-                                className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
                                 src="/images/spring.png"
                                 alt="Spring Framework"
                                 width={158}
                                 height={48}
                             />
                             <img
-                                className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                                className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
                                 src="/images/nodejs.png"
                                 alt="Node.js"
                                 width={158}
