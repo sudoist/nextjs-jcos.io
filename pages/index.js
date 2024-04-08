@@ -194,7 +194,7 @@ export default function Home({timelines, experiences, contacts, skills, skillIco
 
                         {/* List logos */}
                         <div
-                            className="mx-auto mt-20 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:max-w-4xl lg:grid-cols-8">
+                            className="mx-auto mt-20 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:max-w-4xl lg:grid-cols-12">
                             {skillIcons.map((item) => (
                                 <img
                                 key={item.id}
