@@ -1,44 +1,6 @@
 import {CalendarIcon, ChevronRightIcon} from '@heroicons/react/20/solid'
 
-const skills = [
-    {
-        id: 1,
-        title: 'Front End Development',
-        tech: 'Tailwind CSS, Bootstrap, jQuery, Angular, Vue.js, React(This page)',
-        years: 13,
-        scores: [1, 2, 3]
-    },
-    {
-        id: 2,
-        title: 'Back End Development',
-        tech: 'Laravel, Express.js, Restify, Apigee, Spring Framework, RESTful API, Redis',
-        years: 13,
-        scores: [4, 5, 6, 7]
-    },
-    {
-        id: 3,
-        title: 'Database',
-        tech: 'PostgreSQL, MySQL/MariaDB, MongoDB',
-        years: 13,
-        scores: [8, 9, 10, 11]
-    },
-    {
-        id: 4,
-        title: 'DevSecOps',
-        tech: 'Git, GitHub, GitHub, GitHub Actions, Bitbucket, Bitbucket Pipelines, Amazon Web Services, Serena Dimensions, Fortify, WebSphere, Vagrant, Docker, Bamboo, Jenkins, Travis CI',
-        years: 6,
-        scores: [12, 13, 14]
-    },
-    {
-        id: 5,
-        title: 'Project Management',
-        tech: 'Jira, GitLab, ServiceNow, Trello, Clickup, IBM Notes, Confluence',
-        years: 5,
-        scores: [15, 16, 17]
-    }
-]
-
-export default function Skills() {
+export default function Skills({skills}) {
     return (
         <div className="overflow-hidden bg-white shadow sm:rounded-md">
             <ul role="list" className="divide-y divide-gray-200">

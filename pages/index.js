@@ -1,96 +1,82 @@
-import {useState} from 'react'
+import React from "react";
 
 import Skills from '../components/skills';
-import Timeline from "../components/timeline";
+import Experience from "../components/experience";
 
-const contact = {
-    social: [
-        {
-            name: 'GitHub',
-            href: 'https://github.com/sudoist',
-            icon: (props) => (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path
-                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-            ),
-        },
-        {
-            name: 'LinkedIn',
-            href: 'https://www.linkedin.com/in/johncosio/',
-            icon: (props) => (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path
-                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-            ),
-        },
-        {
-            name: 'Phone',
-            href: 'tel:+65 83012898',
-            icon: (props) => (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#000"
-                     className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round"
-                          d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
-                </svg>
+export async function getStaticProps() {
+    // Call the fetch method and passing
+    const fetchTimelines = await fetch( process.env.API_HOST + '/cv/timelines');
 
-            ),
-        },
-        {
-            name: 'Email',
-            href: 'mailto: mail@jcos.io',
-            icon: (props) => (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#000"
-                     className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round"
-                          d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
-                </svg>
+    // Parse the JSON
+    const timelines = await fetchTimelines.json();
 
-            ),
+    // Call the fetch method and passing
+    const fetchExperiences = await fetch(process.env.API_HOST + '/cv/experiences');
+
+    // Parse the JSON
+    const experiences = await fetchExperiences.json();
+
+    // Call the fetch method and passing
+    const fetchContacts = await fetch(process.env.API_HOST + '/cv/contacts');
+
+    // Parse the JSON
+    const contacts = await fetchContacts.json();
+
+    // Call the fetch method and passing
+    const fetchSkills = await fetch(process.env.API_HOST + '/cv/skills');
+
+    // Parse the JSON
+    const skills = await fetchSkills.json();
+
+    // Call the fetch method and passing
+    const fetchSkillIcons = await fetch(process.env.API_HOST + '/cv/skills/icons');
+
+    // Parse the JSON
+    const skillIcons = await fetchSkillIcons.json();
+
+    // Finally we return the results
+    return {
+        props: {
+            timelines: timelines.data,
+            experiences: experiences.data,
+            contacts: contacts.data,
+            skills: skills.data,
+            skillIcons: skillIcons.data,
         },
-    ],
+    };
 }
 
-const timeline = [
-    {
-        name: 'Full circle on Java',
-        description:
-            'Returned to office. Now working on legacy codes with EJB, JDBC, SOAP/REST APIs and to old and trusty Eclipse.',
-        date: 'November 2022 to Present',
-        dateTime: '2022-11',
-    },
-    {
-        name: 'Freelance again (Pandemic WFH trend)',
-        description:
-            'Got to work on many JS UI getting popular; ReactJS/NextJs, VueJs/Nuxt, NestJs but still consistent with Laravel projects.',
-        date: 'December 2020',
-        dateTime: '2020-12',
-    },
-    {
-        name: 'Back to corporate with opportunities to use',
-        description:
-            'Spring, SpringBoot, NodeJs/ExpressJs, SOAP/REST APIs, Zend, Laravel, VueJs, AngularJs, PolymerJs. Dabbled a bit on mobile with Flutter/Dart',
-        date: 'June 2017',
-        dateTime: '2017-07',
-    },
-    {
-        name: 'Started Freelancing',
-        description:
-            'Introduction to WordPress, Shopify and CodeIgniter as these are the most sought after platforms this during this time.',
-        date: 'November 2014',
-        dateTime: '2014-11',
-    },
-    {
-        name: 'First role as Junior Developer',
-        description:
-            'Started using two stacks. PHP with MySQL then Java (JSP, JDBC, Servlets), PostgreSQL. Eventually adopted Spring and Hibernate.',
-        date: 'June 2010',
-        dateTime: '2010-07',
-    },
-]
+const icons = {
+    GitHub: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+    ),
+    LinkedIn: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+    ),
+    Phone: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#000"
+             className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+        </svg>
+    ),
+    Email: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#000"
+             className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round"
+                  d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+        </svg>
 
-export default function Home() {
+    ),
+};
+
+export default function Home({timelines, experiences, contacts, skills, skillIcons}) {
     return (
         <div className="bg-white">
             {/* Header */}
@@ -144,11 +130,11 @@ export default function Home() {
                                     <div
                                         className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-16">
                                         <div className="flex space-x-6 md:order-2">
-                                            {contact.social.map((item) => (
+                                            {contacts.map((item) => (
                                                 <a key={item.name} href={item.href}
                                                    className="text-gray-400 hover:text-gray-500">
                                                     <span className="sr-only">{item.name}</span>
-                                                    <item.icon className="h-6 w-6" aria-hidden="true"/>
+                                                    {React.createElement(icons[item.icon], {className: "h-6 w-6"})}
                                                 </a>
                                             ))}
                                         </div>
@@ -172,8 +158,8 @@ export default function Home() {
                     </h2>
                     <div
                         className="mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                        {timeline.map((item) => (
-                            <div key={item.name}>
+                        {timelines.map((item) => (
+                            <div key={item.id}>
                                 <time
                                     dateTime={item.dateTime}
                                     className="flex items-center text-sm font-semibold leading-6 text-indigo-600"
@@ -202,81 +188,23 @@ export default function Home() {
                             Technical Skills
                         </h2>
                         <p className="mx-auto my-6 max-w-3xl text-lg leading-8 text-gray-300">
-                            The table below answers the common question to assess yourself on a scale of 1 to 5 checks.
+                            The table below answers in checks the common question to "rate yourself on a scale of 1 to 5".
                         </p>
-                        <Skills/>
+                        <Skills skills={skills}/>
+
+                        {/* List logos */}
                         <div
-                            className="mx-auto mt-20 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:max-w-4xl lg:grid-cols-5">
-                            <img
+                            className="mx-auto mt-20 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:max-w-4xl lg:grid-cols-8">
+                            {skillIcons.map((item) => (
+                                <img
+                                key={item.id}
                                 className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-                                src="/images/tailwindcss.png"
-                                alt="Tailwind CSS"
-                                width={158}
-                                height={48}
-                            />
-                            <img
-                                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                                src="/images/vuejs.png"
-                                alt="Vue.js"
-                                width={158}
-                                height={48}
-                            />
-                            <img
-                                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                                src="/images/reactjs.png"
-                                alt="React"
-                                width={158}
-                                height={48}
-                            />
-                            <img
-                                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                                src="/images/angularjs.png"
-                                alt="Angular"
-                                width={158}
-                                height={48}
-                            />
-                            <img
-                                className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-                                src="/images/laravel.png"
-                                alt="Laravel"
-                                width={158}
-                                height={48}
-                            />
-                            <img
-                                className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-                                src="/images/aws-dark.png"
-                                alt="SavvyCal"
-                                width={158}
-                                height={48}
-                            />
-                            <img
-                                className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-                                src="/images/docker.png"
-                                alt="Docker"
-                                width={158}
-                                height={48}
-                            />
-                            <img
-                                className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-                                src="/images/redis.png"
-                                alt="Redis"
-                                width={158}
-                                height={48}
-                            />
-                            <img
-                                className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-                                src="/images/spring.png"
-                                alt="Spring Framework"
-                                width={158}
-                                height={48}
-                            />
-                            <img
-                                className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-                                src="/images/nodejs.png"
-                                alt="Node.js"
-                                width={158}
-                                height={48}
-                            />
+                                src={item.src}
+                                alt={item.alt}
+                                width="12"
+                                height="12"
+                                />
+                            ))}
                         </div>
                         <svg
                             viewBox="0 0 1404 767"
@@ -312,7 +240,7 @@ export default function Home() {
                     </h2>
 
                     <div className="mx-auto mt-12 max-w-2xl sm:mt-18 sm:px-6 lg:px-8">
-                        <Timeline/>
+                        <Experience experiences={experiences}/>
 
                     </div>
                 </div>
@@ -325,11 +253,11 @@ export default function Home() {
                             Contact me
                             <br/>
                             <div className="mt-4 flex space-x-6 md:order-2">
-                                {contact.social.map((item) => (
+                                {contacts.map((item) => (
                                     <a key={item.name} href={item.href}
                                        className="text-gray-400 hover:text-gray-500">
                                         <span className="sr-only">{item.name}</span>
-                                        <item.icon className="h-6 w-6" aria-hidden="true"/>
+                                        {React.createElement(icons[item.icon], {className: "h-6 w-6"})}
                                     </a>
                                 ))}
                             </div>
