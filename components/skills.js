@@ -5,34 +5,34 @@ const skills = [
         id: 1,
         title: 'Front End Development',
         tech: 'Tailwind CSS, Bootstrap, jQuery, Angular, Vue.js, React(This page)',
-        years: 11,
+        years: 13,
         scores: [1, 2, 3]
     },
     {
         id: 2,
         title: 'Back End Development',
         tech: 'Laravel, Express.js, Restify, Apigee, Spring Framework, RESTful API, Redis',
-        years: 11,
+        years: 13,
         scores: [4, 5, 6, 7]
     },
     {
         id: 3,
         title: 'Database',
         tech: 'PostgreSQL, MySQL/MariaDB, MongoDB',
-        years: 11,
+        years: 13,
         scores: [8, 9, 10, 11]
     },
     {
         id: 4,
-        title: 'DevOps',
-        tech: 'Git, GitHub, Amazon Web Services, Serena Dimensions, Fortify, WebSphere, Vagrant, Docker, Bamboo, Jenkins, Travis CI, Bitbucket Pipelines',
-        years: 3,
+        title: 'DevSecOps',
+        tech: 'Git, GitHub, GitHub, GitHub Actions, Bitbucket, Bitbucket Pipelines, Amazon Web Services, Serena Dimensions, Fortify, WebSphere, Vagrant, Docker, Bamboo, Jenkins, Travis CI',
+        years: 6,
         scores: [12, 13, 14]
     },
     {
         id: 5,
         title: 'Project Management',
-        tech: 'Jira, ServiceNow, IBM Notes, Confluence',
+        tech: 'Jira, GitLab, ServiceNow, Trello, Clickup, IBM Notes, Confluence',
         years: 5,
         scores: [15, 16, 17]
     }
@@ -59,7 +59,7 @@ export default function Skills() {
                                                 <CalendarIcon className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
                                                               aria-hidden="true"/>
                                                 <p>
-                                                    <time dateTime={skill.years}>{skill.years}</time>
+                                                    <time dateTime={skill.years}>{skill.years} </time>
                                                     years
                                                 </p>
                                             </div>

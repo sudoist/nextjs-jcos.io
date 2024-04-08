@@ -26,20 +26,8 @@ const contact = {
             ),
         },
         {
-            name: 'Resume',
-            href: 'https://docs.google.com/document/d/1HVCA5TFCzytVJZbLt-W8UE6Bm3BIlp9kLz4pRjv6Y4g/edit?usp=sharing',
-            icon: (props) => (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                     stroke="#000" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round"
-                          d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
-                </svg>
-
-            ),
-        },
-        {
             name: 'Phone',
-            href: 'tel:83012898',
+            href: 'tel:+65 83012898',
             icon: (props) => (
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#000"
                      className="w-6 h-6">
@@ -66,25 +54,11 @@ const contact = {
 
 const timeline = [
     {
-        name: 'First role as Junior Developer',
+        name: 'Full circle on Java',
         description:
-            'Started using two stacks. PHP with MySQL then Java (JSP, JDBC, Servlets), PostgreSQL. Eventually adopted Spring and Hibernate.',
-        date: 'June 2010',
-        dateTime: '2010-07',
-    },
-    {
-        name: 'Started Freelancing',
-        description:
-            'Introduction to WordPress, Shopify and CodeIgniter as these are the most sought after platforms this during this time.',
-        date: 'November 2014',
-        dateTime: '2014-11',
-    },
-    {
-        name: 'Back to corporate with opportunities to use',
-        description:
-            'Spring, SpringBoot, NodeJs/ExpressJs, SOAP/REST APIs, Zend, Laravel, VueJs, AngularJs, PolymerJs. Dabbled a bit on mobile with Flutter/Dart',
-        date: 'June 2017',
-        dateTime: '2017-07',
+            'Returned to office. Now working on legacy codes with EJB, JDBC, SOAP/REST APIs and to old and trusty Eclipse.',
+        date: 'November 2022 to Present',
+        dateTime: '2022-11',
     },
     {
         name: 'Freelance again (Pandemic WFH trend)',
@@ -94,11 +68,25 @@ const timeline = [
         dateTime: '2020-12',
     },
     {
-        name: 'Full circle on Java',
+        name: 'Back to corporate with opportunities to use',
         description:
-            'Returned to office. Now working on legacy codes with EJB, JDBC, SOAP/REST APIs and to old and trusty Eclipse.',
-        date: 'November 2022',
-        dateTime: '2022-11',
+            'Spring, SpringBoot, NodeJs/ExpressJs, SOAP/REST APIs, Zend, Laravel, VueJs, AngularJs, PolymerJs. Dabbled a bit on mobile with Flutter/Dart',
+        date: 'June 2017',
+        dateTime: '2017-07',
+    },
+    {
+        name: 'Started Freelancing',
+        description:
+            'Introduction to WordPress, Shopify and CodeIgniter as these are the most sought after platforms this during this time.',
+        date: 'November 2014',
+        dateTime: '2014-11',
+    },
+    {
+        name: 'First role as Junior Developer',
+        description:
+            'Started using two stacks. PHP with MySQL then Java (JSP, JDBC, Servlets), PostgreSQL. Eventually adopted Spring and Hibernate.',
+        date: 'June 2010',
+        dateTime: '2010-07',
     },
 ]
 
@@ -132,14 +120,14 @@ export default function Home() {
                         <div
                             className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
                             <h1 className="max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:col-span-2 xl:col-auto">
-                                Full Stack Developer
+                                John Cosio
                             </h1>
                             <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
                                 <p className="text-lg leading-8 text-gray-600 mb-5">
-                                    Full Stack Developer with over 11 years of experience in web development.
+                                    Full Stack Developer with over 13 years of experience in web development.
                                 </p>
                                 <p className="text-lg leading-8 text-gray-600 mb-5">
-                                    Ranging from ground up projects and maintenance of legacy applications.
+                                    Projects ranging from creating new applications and maintenance of legacy applications.
                                 </p>
                                 <p className="text-lg leading-8 text-gray-600 mb-5">
                                     I try to understand the most efficient approach based on provided resources and
@@ -318,7 +306,7 @@ export default function Home() {
                 </div>
 
                 {/* Content section */}
-                <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
+                <div className="mx-auto my-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
                     <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                         Experience
                     </h2>
@@ -328,6 +316,36 @@ export default function Home() {
 
                     </div>
                 </div>
+
+                {/* Call to Action */}
+                <div className="bg-gray-100">
+                    <div
+                        className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8">
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                            Contact me
+                            <br/>
+                            <div className="mt-4 flex space-x-6 md:order-2">
+                                {contact.social.map((item) => (
+                                    <a key={item.name} href={item.href}
+                                       className="text-gray-400 hover:text-gray-500">
+                                        <span className="sr-only">{item.name}</span>
+                                        <item.icon className="h-6 w-6" aria-hidden="true"/>
+                                    </a>
+                                ))}
+                            </div>
+                        </h2>
+                        <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+                            <a href="https://projects.jcos.io/"
+                               className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                View projects
+                            </a>
+                            <a href="https://jcos.io/" className="text-sm font-semibold leading-6 text-gray-900">About me <span
+                                aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                </div>
+
+
             </main>
         </div>
     )
