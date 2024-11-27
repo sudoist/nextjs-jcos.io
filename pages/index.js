@@ -116,9 +116,9 @@ export default function Home({timelines, experiences, contacts, skills, skillIco
                                     Projects ranging from creating new applications and maintenance of legacy applications.
                                 </p>
                                 <p className="text-lg leading-8 text-gray-600 mb-5">
-                                    I try to understand the most efficient approach based on provided resources and
+                                    I try to understand the most efficient approach based on given resources and
                                     constraints to
-                                    provide by quantifiable value in terms of profits and statistics.
+                                    provide quantifiable value in terms of profits and statistics.
                                 </p>
                                 <p className="text-lg leading-8 text-gray-600 mb-5">
                                     Making it simple. No need for fancy tech buzzwords.
